@@ -1,5 +1,6 @@
 bin/CMS_Android.apk
 bin/resources.ap_
 bin/classes.dex
+gen/cms/org/R.java
 *.class
 *~*
