@@ -1,1 +1,4 @@
-This is a readme for notes.
+This is a vanilla Android project. Since I don't know how an eclipse project
+is generated I have created a vanilla project with a .gitignore. As you see
+files that are not needed to keep track of (compiles or build junk) simply
+add a regex to ignore them. Happy ignoring!

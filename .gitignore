@@ -1,0 +1,5 @@
+bin/CMS_Android.apk
+bin/resources.ap_
+bin/classes.dex
+*.class
+*~*
