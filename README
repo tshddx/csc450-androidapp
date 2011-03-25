@@ -2,3 +2,11 @@ This is a vanilla Android project. Since I don't know how an eclipse project
 is generated I have created a vanilla project with a .gitignore. As you see
 files that are not needed to keep track of (compiles or build junk) simply
 add a regex to ignore them. Happy ignoring!
+
+
+Notes:
+To open the exisitng project with Eclipse do:
+Use File > Import and select General > Existing Projects into Workspace. Click next and then browse to the directory contain the project directory. 
+
+Eclipse will probably give you an error when you first try to compile. If so simple create
+a folder name gen in eclipse. It will then populate the needed files ande what not.

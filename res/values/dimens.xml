@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Left">5px</dimen>
+    <dimen name="Right">5px</dimen>
+</resources>

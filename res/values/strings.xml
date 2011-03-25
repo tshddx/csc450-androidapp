@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello World, CMS!</string>
     <string name="app_name">Car Management System</string>
+    <string name="MainMenu_BT">Click Here To Connect To Dongle</string>
+    <string name="MainMenu_Web">Click Here To Start Posting Info To Server</string>
 </resources>
