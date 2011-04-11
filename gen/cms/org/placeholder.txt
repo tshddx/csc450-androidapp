@@ -1,0 +1,3 @@
+This need to be here to create the folder structure for R.java.
+
+We can't add R.java to the repo because it gets generated on the fly.
