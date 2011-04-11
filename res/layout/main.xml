@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" android:orientation="vertical">
     <ImageView android:layout_width="wrap_content" android:src="@drawable/icon" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
-    <Button android:layout_width="fill_parent" android:id="@+id/button1" android:text="@string/MainMenu_BT" android:layout_height="wrap_content"></Button>
-    <Button android:layout_width="fill_parent" android:id="@+id/button2" android:text="@string/MainMenu_Web" android:layout_height="wrap_content"></Button>
-    <Button android:layout_width="fill_parent" android:id="@+id/button3" android:text="@string/About_Button" android:layout_height="wrap_content"></Button>
+    <Button android:layout_width="fill_parent" android:id="@+id/btnBT" android:text="@string/MainMenu_BT" android:layout_height="wrap_content"></Button>
+    <Button android:layout_width="fill_parent" android:id="@+id/btnWeb" android:text="@string/MainMenu_Web" android:layout_height="wrap_content"></Button>
+    <Button android:layout_width="fill_parent" android:id="@+id/btnAbout" android:text="@string/About_Button" android:layout_height="wrap_content"></Button>
 </LinearLayout>

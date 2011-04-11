@@ -13,6 +13,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".about"	android:label="@string/About_Text_Title" android:theme="@android:style/Theme.Dialog"> 
+        </activity>
 
     </application>
 </manifest>

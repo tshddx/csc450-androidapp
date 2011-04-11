@@ -5,4 +5,7 @@
     <string name="MainMenu_BT">Click Here To Connect To Dongle</string>
     <string name="MainMenu_Web">Click Here To Start Posting Info To Server</string>
     <string name="About_Button">About CMS 1.0</string>
+    <string name="About_Text_Title">About CMS 1.0</string>
+    <string name="About_Text_Text">CMS 1.0 has been built for CSC 450 at Missouri State University\n\n<b>Authors</b>\nThomas Shadoxx 
+    	\nLee Hicks\nNathan Duncan\nAndrew Lambardo</string>
 </resources>
