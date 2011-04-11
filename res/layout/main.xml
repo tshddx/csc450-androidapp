@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" android:orientation="vertical">
-    <ImageView android:layout_width="wrap_content" android:src="@drawable/icon" android:id="@+id/imageView1" android:layout_height="wrap_content"></ImageView>
+    <TextView android:text="" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    <ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:src="@drawable/cms_home_pic" android:layout_width="fill_parent"></ImageView>
     <Button android:layout_width="fill_parent" android:id="@+id/btnBT" android:text="@string/MainMenu_BT" android:layout_height="wrap_content"></Button>
     <Button android:layout_width="fill_parent" android:id="@+id/btnWeb" android:text="@string/MainMenu_Web" android:layout_height="wrap_content"></Button>
     <Button android:text="@string/MainMenu_Info" android:id="@+id/btnInfo" android:layout_height="wrap_content" android:layout_width="fill_parent"></Button>
