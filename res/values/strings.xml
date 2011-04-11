@@ -4,4 +4,5 @@
     <string name="app_name">Car Management System</string>
     <string name="MainMenu_BT">Click Here To Connect To Dongle</string>
     <string name="MainMenu_Web">Click Here To Start Posting Info To Server</string>
+    <string name="About_Button">About CMS 1.0</string>
 </resources>
