@@ -13,10 +13,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".about"	android:label="@string/About_Text_Title" android:theme="@android:style/Theme.Dialog"> 
-        </activity>
-		
-		<activity android:name=".info" android:label="@string/Info_Text_Title" android:theme="@android:style/Theme.Dialog"></activity>
-
+  		<activity android:name=".fillup" android:label="@string/Fillup_Text_Title"></activity>
+		<activity android:name=".maint" android:label="@string/Maint_Text_Title"></activity>
+        <activity android:name=".info" android:label="@string/Info_Text_Title"></activity>
+        <activity android:name=".about"	android:label="@string/About_Text_Title" android:theme="@android:style/Theme.Dialog"/> 
     </application>
 </manifest>

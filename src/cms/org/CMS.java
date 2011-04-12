@@ -14,15 +14,15 @@ public class CMS extends Activity  implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);    
     
+    View fillupButton = findViewById(R.id.btnFillup);
+    View maintButton = findViewById(R.id.btnMaint);
+    View infoButton = findViewById(R.id.btnInfo);
     View aboutButton = findViewById(R.id.btnAbout);
-    View btButton = findViewById(R.id.btnBT); 
-    View webButton = findViewById(R.id.btnWeb);
-    View infoButton = findViewById(R.id.btnAbout);
-    
-    aboutButton.setOnClickListener(this);
-    btButton.setOnClickListener(this);
-    webButton.setOnClickListener(this);
+
+    fillupButton.setOnClickListener(this);
+    maintButton.setOnClickListener(this);
     infoButton.setOnClickListener(this);
+    aboutButton.setOnClickListener(this);
     
     }
     
@@ -30,6 +30,16 @@ public class CMS extends Activity  implements OnClickListener{
     {
     	switch(v.getId())
     	{
+    		case R.id.btnFillup:
+    			Intent iFillup = new Intent(this, fillup.class);
+    			startActivity(iFillup);
+    			break;
+    			
+    		case R.id.btnMaint:
+    			Intent iMaint = new Intent(this, maint.class);
+    			startActivity(iMaint);
+    			break;
+    			
     		case R.id.btnAbout:
     			Intent iAbout = new Intent(this, about.class);
     			startActivity(iAbout);
@@ -39,13 +49,6 @@ public class CMS extends Activity  implements OnClickListener{
     			Intent iInfo = new Intent(this, info.class);
     			startActivity(iInfo);
     			break;
-    			
-    		case R.id.btnBT:
-    			break;
-    	
-    		case R.id.btnWeb:
-    			break;
-    		
     		
     	}    
     }

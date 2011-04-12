@@ -3,5 +3,5 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-   <TextView android:id="@+id/textView1" android:text="@string/About_Text_Text" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+    <TextView android:text="Add code here to pull up the list of maintenance for that car" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 </LinearLayout>

@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, CMS!</string>
     <string name="app_name">Car Management System</string>
-    <string name="MainMenu_BT">Connect To BT</string>
-    <string name="MainMenu_Web">Connect WebService</string>
-    <string name="MainMenu_Info">Vehicle Information</string>
+
+    <string name="MainMenu_Info">Vehicle Information</string>    
+    <string name="MainMenu_Fillup_Title">Add Fill-up</string>
+    <string name="MainMenu_Maint_Title">Check Maintenance</string>
+
     <string name="About_Button">About CMS 1.0</string>
     <string name="About_Text_Title">About CMS 1.0</string>
     <string name="About_Text_Text">CMS 1.0 has been built for CSC 450 at Missouri State University\n\n<b>Authors</b>\nThomas Shadoxx 
     	\nLee Hicks\nNathan Duncan\nAndrew Lambardo</string>
+
+
+	<string name="Fillup_Text_Title">Enter A Fillup</string>       
+    
+    <string name="Maint_Text_Title">Check Vehicle Maintenance</string>
+    
+    
     <string name="Info_Text_Title">Current Vehicle Information</string>
+    <string name="Info_VIN">VIN:</string>
+    <string name="Info_Make">Make:</string>
+    <string name="Info_Model">Model:</string>
+    <string name="Info_Year">Year:</string>
+    <string name="Info_AMPG">Average MPG:</string>
+    <string name="Info_Total_Gallons">Total Gallons:</string>
+    <string name="Info_Total_Miles">Total Miles:</string>
+    <string name="Info_Total_Carbon">Total Carbon Footprint:</string>
+    
 </resources>

@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TableLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-    <TextView android:text="TextView" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-</LinearLayout>
+  android:layout_height="fill_parent"
+  android:stretchColumns="1">
+  
+  <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_VIN" />
+	<TextView android:padding="3dip" android:text="" />
+  </TableRow>
+  <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Make" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+  <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Model" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Year" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_AMPG" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Total_Gallons" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Total_Miles" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Total_Carbon" />
+  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  </TableRow>   
+</TableLayout>
+
+
