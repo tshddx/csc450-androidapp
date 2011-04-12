@@ -18,11 +18,13 @@ public class CMS extends Activity  implements OnClickListener{
     View maintButton = findViewById(R.id.btnMaint);
     View infoButton = findViewById(R.id.btnInfo);
     View aboutButton = findViewById(R.id.btnAbout);
+    View settingsButton = findViewById(R.id.btnSettings);
 
     fillupButton.setOnClickListener(this);
     maintButton.setOnClickListener(this);
     infoButton.setOnClickListener(this);
     aboutButton.setOnClickListener(this);
+    settingsButton.setOnClickListener(this);
     
     }
     
@@ -43,6 +45,11 @@ public class CMS extends Activity  implements OnClickListener{
     		case R.id.btnAbout:
     			Intent iAbout = new Intent(this, about.class);
     			startActivity(iAbout);
+    			break;
+    			
+    		case R.id.btnSettings:
+    			Intent iSettings = new Intent(this, settings.class);
+    			startActivity(iSettings);
     			break;
     			
     		case R.id.btnInfo:

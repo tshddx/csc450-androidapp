@@ -5,6 +5,7 @@
     <string name="MainMenu_Info">Vehicle Information</string>    
     <string name="MainMenu_Fillup_Title">Add Fill-up</string>
     <string name="MainMenu_Maint_Title">Check Maintenance</string>
+    <string name="MainMenu_Settings">Settings</string>
 
     <string name="About_Button">About CMS 1.0</string>
     <string name="About_Text_Title">About CMS 1.0</string>
@@ -15,6 +16,8 @@
 	<string name="Fillup_Text_Title">Enter A Fillup</string>       
     
     <string name="Maint_Text_Title">Check Vehicle Maintenance</string>
+    
+    <string name="Settings_Text_Title">Settings For CMS 1.0</string>
     
     
     <string name="Info_Text_Title">Current Vehicle Information</string>

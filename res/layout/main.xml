@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical">
-    <TextView android:text="" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    android:layout_height="fill_parent" android:orientation="vertical" >
     <ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:src="@drawable/cms_home_pic" android:layout_width="fill_parent"></ImageView>
     <Button android:text="@string/MainMenu_Fillup_Title" android:id="@+id/btnFillup" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
     <Button android:text="@string/MainMenu_Maint_Title" android:id="@+id/btnMaint" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
     <Button android:text="@string/MainMenu_Info" android:id="@+id/btnInfo" android:layout_height="wrap_content" android:layout_width="fill_parent"></Button>
+    <Button android:text="@string/MainMenu_Settings" android:id="@+id/btnSettings" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
     <Button android:layout_width="fill_parent" android:id="@+id/btnAbout" android:text="@string/About_Button" android:layout_height="wrap_content"></Button>
 </LinearLayout>
