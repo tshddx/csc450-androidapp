@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-    <Button android:text="Add Fillup" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-</LinearLayout>
+	<TableLayout 
+    	android:id="@+id/tableLayout1" 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_width="fill_parent"
+  		android:layout_height="fill_parent"
+    	android:stretchColumns="2">
+    	<TableRow>
+			<TextView android:text="Miles : " android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding ="3dip"></TextView>
+			<!--  <TextView android:text="MILES LOADED FROM ODB2" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>  -->
+			<EditText android:text="" android:layout_height="wrap_content" android:layout_weight="0.1" android:id="@+id/txtMiles" android:layout_width="fill_parent"
+    	android:inputType="number"></EditText>
+    	</TableRow>
+    	
+    	<View
+        android:layout_height="10dip" />
+    	
+    	
+    	<TableRow>
+    	<TextView android:text="Gallons : " android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    	<EditText android:text="" android:layout_height="wrap_content" android:layout_weight="0.1" android:id="@+id/txtGallons" android:layout_width="fill_parent"
+    	android:inputType="numberDecimal"></EditText>
+    	</TableRow>
+    	
+    	<View
+        android:layout_height="10dip" />
+        
+    	<TableRow>
+    	<Button android:layout_height="wrap_content" android:id="@+id/btnFillUp" android:layout_width="wrap_content" android:text="Add Fill-Up" android:layout_weight="0.1"></Button>
+    	</TableRow>
+    	
+    	<TableRow>
+    	<TextView android:text="" android:id="@+id/output" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    	</TableRow>
+    	
+	</TableLayout>
