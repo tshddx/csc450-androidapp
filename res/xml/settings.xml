@@ -23,11 +23,15 @@
  					 android:defaultValue="false"
  					 android:key="btToggle"
  					 android:summary="@string/Settings_BT_Toggle_Summary" />
-<!--  					 
- <ListPreference android:title="Select Bluetooth Device"
- 				 android:key="btdevice"
- 				 android:dependency="bttoggle"
- 				 android:summary="Pick a device" /> -->
+	
+		 
+ <CheckBoxPreference android:title="Select Bluetooth Device"
+ 				 android:key="btDevice"
+ 				 android:summary="Pick a device" /> 
+ 				 
+ <Preference android:title="Discover Device"
+ 					 android:key="btDiscover"
+ 					 android:summary="Find Device" />
  				 
  </PreferenceCategory>
  					
