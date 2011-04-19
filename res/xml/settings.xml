@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+  <PreferenceCategory android:title="User Account Information">
+  	<EditTextPreference
+  	 	android:title="@string/Settings_UserName_Title"
+  	 	android:key="username"
+  	 	android:summary="@string/Settings_UserName_Summary"
+  	 	android:defaultValue="user"/>
+  	 	
+ 	<EditTextPreference android:title="@string/Settings_UserPass_Title"
+ 					 android:key="userpass"
+ 					 android:summary="@string/Settings_UserPass_Summary"
+ 					 android:defaultValue="password"/>
+ 					 
+
+ </PreferenceCategory>
+ 
+ <PreferenceCategory android:title="@string/Settings_BT_Category">
+ 
+ <CheckBoxPreference android:title="@string/Settings_BT_Toggle"
+ 					 android:defaultValue="false"
+ 					 android:key="btToggle"
+ 					 android:summary="@string/Settings_BT_Toggle_Summary" />
+	
+		 
+ <CheckBoxPreference android:title="Select Bluetooth Device"
+ 				 android:key="btDevice"
+ 				 android:summary="Pick a device" /> 
+ 				 
+ <Preference android:title="Discover Device"
+ 					 android:key="btDiscover"
+ 					 android:summary="Find Device" />
+ 				 
+ </PreferenceCategory>
+ 					
+
+ 
+ <PreferenceCategory android:title="Misc Options">
+ 	<EditTextPreference android:title="@string/Settings_Interval_Title"
+					android:key="interval"
+					android:summary="@string/Settings_Interval_Summary"
+					android:defaultValue="5"/>		
+ 
+ </PreferenceCategory>
+ 
+</PreferenceScreen>
