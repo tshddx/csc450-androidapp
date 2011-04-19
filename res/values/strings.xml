@@ -22,6 +22,11 @@
     <string name="Settings_UserName_Summary">Please provide your user name</string>
     <string name="Settings_UserPass_Title">User Password</string>
     <string name="Settings_UserPass_Summary">Please provide your password</string>
+    <string name="Settings_Interval_Title">WebConnect Interval</string>
+    <string name="Settings_Interval_Summary">Interval to upload information (minutes)</string>
+    <string name="Settings_BT_Category">Bluetooth Settings</string>
+    <string name="Settings_BT_Toggle">Toggle Bluetooth</string>
+    <string name="Settings_BT_Toggle_Summary">Must be enabled for web connect</string>
     
     <string name="Info_Text_Title">Current Vehicle Information</string>
     <string name="Info_VIN">VIN:</string>
