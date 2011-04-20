@@ -1,7 +1,6 @@
 package cms.org;
 
 
-
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -11,7 +10,6 @@ import android.preference.Preference;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 import android.app.Activity;
@@ -80,6 +78,16 @@ public class settings extends PreferenceActivity
 			}
 		});
 	    
+	    if(bt.isEnabled())
+	    {
+	    	btToggle.setChecked(true);
+	    }
+	    else
+	    {
+	    	btToggle.setChecked(false);
+	    }    
+	    
+	    
 	}
 	
 	private String getBTDeviceName(String MAC)
@@ -101,7 +109,6 @@ public class settings extends PreferenceActivity
 	private void turnOnBT()
 	{
 		Toast.makeText(getBaseContext(), "Turning On Bluetooth", Toast.LENGTH_SHORT).show();
-		//bt.turnOnBluetooth();
 
 		if(bt == null)
 		{
@@ -114,6 +121,10 @@ public class settings extends PreferenceActivity
 			Log.d("info","Attempting to start bt");
 			Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBT,REQUEST_BT_ENABLE);					
+		}
+		else
+		{
+			Toast.makeText(getBaseContext(), "Bluetooth is alredy on.", Toast.LENGTH_LONG).show();
 		}
 	}
 	
