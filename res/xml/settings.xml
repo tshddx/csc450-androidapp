@@ -24,14 +24,18 @@
  					 android:key="btToggle"
  					 android:summary="@string/Settings_BT_Toggle_Summary" />
 	
-		 
- <CheckBoxPreference android:title="Select Bluetooth Device"
- 				 android:key="btDevice"
- 				 android:summary="Pick a device" /> 
- 				 
  <Preference android:title="Discover Device"
  					 android:key="btDiscover"
- 					 android:summary="Find Device" />
+ 					 android:summary="Find Device" /> 	
+ 					 
+<ListPreference android:title="Select Bluetooth Device"
+ 				 android:summary="Pick a device"
+ 				 android:key="btDeviceList"
+ 				 android:defaultValue="1" 
+ 				 android:entries="@array/btDev"
+ 				 android:entryValues="@array/btDevVal" />	
+ 				 
+
  				 
  </PreferenceCategory>
  					

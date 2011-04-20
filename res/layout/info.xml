@@ -37,7 +37,7 @@
     <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_Total_Carbon" />
   	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
-  </TableRow>   
+  </TableRow>  
 </TableLayout>
 
 

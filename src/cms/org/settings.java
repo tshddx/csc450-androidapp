@@ -2,6 +2,7 @@ package cms.org;
 
 
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.preference.Preference;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 import android.app.Activity;
@@ -20,6 +22,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 
 public class settings extends PreferenceActivity
 {
@@ -29,19 +32,26 @@ public class settings extends PreferenceActivity
 	private boolean btEnabled = false;	
 	IntentFilter btFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
 	
+    //declaring forms
+    CheckBoxPreference btToggle;
+    ListPreference btDeviceList;
+    Preference btDiscover;
+    
+    ArrayList<String> btDevicesFoundName = new ArrayList<String>();
+	ArrayList<String> btDevicesFoundMAC = new ArrayList<String>();
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 	    addPreferencesFromResource(R.xml.settings);
 	 
-	    //declaring forms
-	    CheckBoxPreference btToggle = (CheckBoxPreference) findPreference("btToggle");
-	    //ListPreference btDevices = (ListPreference) findPreference("btDevice");
-	    CheckBoxPreference btDevices = (CheckBoxPreference) findPreference("btDevice");
-	    Preference btDiscover = (Preference) findPreference("btDiscover");
+
+	    btToggle = (CheckBoxPreference) findPreference("btToggle");
+	    btDeviceList = (ListPreference) findPreference("btDeviceList");
+	    btDiscover = (Preference) findPreference("btDiscover");	    
 	    
-	    	    
+	    
 	    //setting click events
 	    btToggle.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			
@@ -51,22 +61,41 @@ public class settings extends PreferenceActivity
 			}
 		});		
 	    
-	    btDevices.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+  	    btDeviceList.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 			
-			public boolean onPreferenceClick(Preference preference) {
-				searchPairedBT();
-				return true;
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+				btDeviceList.setValue((String)newValue);				
+				btDeviceList.setSummary("Selected Device: " + getBTDeviceName((String)newValue));
+				return false;
 			}
 		});
-	    
+		
+   
 	    btDiscover.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			
-			public boolean onPreferenceClick(Preference preference) {
+			public boolean onPreferenceClick(Preference preference) {								
 				discoverBT();
 				return true;
 			}
 		});
 	    
+	}
+	
+	private String getBTDeviceName(String MAC)
+	{
+		
+		Log.d("BT Discovery", "String to find" + MAC);
+		int index = btDevicesFoundMAC.indexOf(MAC);
+		
+		if(index <0)
+		{
+			return "";
+		}
+		else
+		{
+					return btDevicesFoundName.get(index);
+		}
 	}
 	
 	private void turnOnBT()
@@ -88,7 +117,7 @@ public class settings extends PreferenceActivity
 		}
 	}
 	
-	
+
 	private void searchPairedBT()
 	{
 		Set<BluetoothDevice> paired = bt.getBondedDevices();
@@ -106,8 +135,32 @@ public class settings extends PreferenceActivity
 		if(bt.startDiscovery())
 		{
 			registerReceiver(btReceiver, btFilter);
+			
+			//disable bt device selection till we find devices
+			btDeviceList.setEnabled(false);
+			
+			//dump all existing found devices
+			btDevicesFoundName.clear();
+			btDevicesFoundMAC.clear();
+			
 			Toast.makeText(getBaseContext(), "Starting Bluetooth Discovery...Please wait", Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	private void genBTPreferenceList()
+	{
+		//code could be in own function, not really needed
+		CharSequence[] btNames = btDevicesFoundName.toArray(new CharSequence[btDevicesFoundName.size()]);
+		CharSequence[] btMACs = btDevicesFoundMAC.toArray(new CharSequence[btDevicesFoundMAC.size()]);
+			
+		//enable bt selection for user
+		if(!btDeviceList.isEnabled())
+		{
+			btDeviceList.setEnabled(true);
+		}
+		
+		btDeviceList.setEntries(btNames);
+		btDeviceList.setEntryValues(btMACs);
 	}
 	
 	
@@ -141,9 +194,13 @@ public class settings extends PreferenceActivity
 			if(BluetoothDevice.ACTION_FOUND.equals(action))
 			{
 				BluetoothDevice d = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-				Log.d("BT Discovery",d.getName() + "  " + d.getAddress());
+				Log.d("BT Discovery", "Adding " + d.getName() + "  " + d.getAddress());
+								
+				btDevicesFoundName.add(new String(d.getName()));
+				btDevicesFoundMAC.add(new String(d.getAddress()));		
+				
+				genBTPreferenceList();		
 			}
-			
 		}
 	};
 }

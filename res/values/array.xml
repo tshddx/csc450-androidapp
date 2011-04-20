@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="btDev">
+		<item>None</item>
+	</string-array>
+	
+	<string-array name="btDevVal">
+		<item></item>
+	</string-array>
+</resources>
