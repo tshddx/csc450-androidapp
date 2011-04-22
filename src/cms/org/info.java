@@ -34,10 +34,19 @@ public class info extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.info);
 
+		
+		
 		// REMOVE - this is test code on how to get a value of the preferences
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		Log.d("BT Discovery", settings.getString("btDeviceList", "NA"));
+		
+		BT bt = new BT(getBaseContext(), null, settings.getString("btDeviceList","NA"));
+		bt.startBT();
+		bt.connectBT();
+		bt.connectStreams();
+		Log.d("BT Discovery","Reading BT dongle");
+		bt.read();
 
 		String url = "http://cars.tshaddox.com/api/vehiclelist?username=";
 		url += user;

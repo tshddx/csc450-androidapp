@@ -121,8 +121,8 @@ public class BT extends Thread
 		{
 			try
 			{
+				Log.d("BTCON","Starting read of buffer");
 				bytes = inStream.read(buffer);
-				//Log.d("BTCON", bytes.toA);
 				Log.d("BTCON","Read" + bytes + "bytes");
 			}
 			catch(IOException e)
