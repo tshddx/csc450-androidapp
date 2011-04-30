@@ -26,7 +26,8 @@ public class info extends Activity {
 
 	String user = "admin";
 	String password = "password";
-	String vin = "123abc";
+	String info[][];
+	String vin;
 	String year;
 	String make;
 	String model;
@@ -45,19 +46,17 @@ public class info extends Activity {
 				.getDefaultSharedPreferences(this);
 		Log.d("BT Discovery", settings.getString("btDeviceList", "NA"));
 		
-		BT bt = new BT(getBaseContext(), null, settings.getString("btDeviceList","NA"));
-		bt.startBT();
-		bt.connectBT();
-		bt.connectStreams();
-		Log.d("BT Discovery","Reading BT dongle");
-		bt.read();
+		//BT bt = new BT(getBaseContext(), null, settings.getString("btDeviceList","NA"));
+		//bt.startBT();
+		//bt.connectBT();
+		//bt.connectStreams();
+		//Log.d("BT Discovery","Reading BT dongle");
+		//bt.read();
 
 		String url = "http://cars.tshaddox.com/api/vehiclelist?username=";
 		url += user;
 		url += "&password=";
 		url += password;
-		// url += "&vin=";
-		// url += vin;
 		url += "&hax";
 
 		System.out.println(url);
@@ -74,17 +73,30 @@ public class info extends Activity {
 			Log.d("info", "Root element of the doc is "
 					+ doc.getDocumentElement().getNodeName());
 
-			NodeList vehicleList = doc.getElementsByTagName("vehicles");
+			NodeList vehicleList = doc.getElementsByTagName("vehicle");
 			int totalVehicles = vehicleList.getLength();
 			Log.d("info", "Total no of vehicles : " + totalVehicles);
 
-			String s[] = new String[totalVehicles];
+			String carName[] = new String[totalVehicles];
+			info = new String[totalVehicles][7];
 			
 			for (int i = 0; i < vehicleList.getLength(); i++) {
 
 				Node vehicleNode = vehicleList.item(i);
 				if (vehicleNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element vehicleElement = (Element) vehicleNode;
+					
+					// ------ Vin
+					NodeList vinList = vehicleElement
+							.getElementsByTagName("vin");
+					Element vinElement = (Element) vinList.item(0);
+
+					NodeList vinTextList = vinElement.getChildNodes();
+					make = (String) vinTextList.item(0).getNodeValue()
+							.trim();
+					info[i][0]= (String) vinTextList.item(0).getNodeValue()
+					.trim();
+					Log.d("info", "Make : " + make);
 
 					// ------ Make
 					NodeList makeList = vehicleElement
@@ -94,8 +106,11 @@ public class info extends Activity {
 					NodeList makeTextList = makeElement.getChildNodes();
 					make = (String) makeTextList.item(0).getNodeValue()
 							.trim();
+					info[i][1]= (String) makeTextList.item(0).getNodeValue()
+					.trim();
 					Log.d("info", "Make : " + make);
-					// ------ Make
+					
+					// ------ Model
 					NodeList modelList = vehicleElement
 							.getElementsByTagName("model");
 					Element modelElement = (Element) modelList.item(0);
@@ -103,8 +118,11 @@ public class info extends Activity {
 					NodeList modelTextList = modelElement.getChildNodes();
 					model = (String) modelTextList.item(0)
 							.getNodeValue().trim();
+					info[i][2] = (String) modelTextList.item(0)
+					.getNodeValue().trim();
 					Log.d("info", "Model : " + model);
-					// ------ Make
+					
+					// ------ Year
 					NodeList yearList = vehicleElement
 							.getElementsByTagName("year");
 					Element yearElement = (Element) yearList.item(0);
@@ -112,14 +130,15 @@ public class info extends Activity {
 					NodeList yearTextList = yearElement.getChildNodes();
 					year = (String) yearTextList.item(0).getNodeValue()
 							.trim();
-					
+					info[i][3] = (String) yearTextList.item(0).getNodeValue()
+					.trim();
 					// ------ Name
 					NodeList nameList = vehicleElement
 							.getElementsByTagName("name");
 					Element nameElement = (Element) nameList.item(0);
 
 					NodeList nameTextList = nameElement.getChildNodes();
-					name = (String) nameTextList.item(0).getNodeValue()
+					carName[i] = (String) nameTextList.item(0).getNodeValue()
 							.trim();
 					
 					// ------ MPG
@@ -130,6 +149,8 @@ public class info extends Activity {
 					NodeList mpgTextList = mpgElement.getChildNodes();
 					mpg = (String) mpgTextList.item(0).getNodeValue()
 							.trim();
+					info[i][4] = (String) mpgTextList.item(0).getNodeValue()
+					.trim();
 					
 					// ------ Carbon Footprint
 					NodeList cfpList = vehicleElement
@@ -139,29 +160,28 @@ public class info extends Activity {
 					NodeList cfpTextList = cfpElement.getChildNodes();
 					carbFp = (String) cfpTextList.item(0).getNodeValue()
 							.trim();
+					info[i][5] = (String) cfpTextList.item(0).getNodeValue()
+					.trim();
 					
 					// ------ Desc
 					NodeList descList = vehicleElement
 							.getElementsByTagName("description");
+						
 					Element descElement = (Element) descList.item(0);
-
+						
 					NodeList descTextList = descElement.getChildNodes();
-					desc = (String) descTextList.item(0).getNodeValue()
-							.trim();
-
-					
-					// ------ Make drop down.
-					Log.d("info", "Year : " + year);
-
-					Log.d("info", year + " " + make + " " + model);
-					
-					s[i] = name;
-					
+					Log.d("info", "This: " + descTextList.item(0));
+					if (descTextList.item(0) != null) {	
+						desc = (String) descTextList.item(0).getNodeValue()
+								.trim();
+						info[i][6] = (String) descTextList.item(0).getNodeValue()
+						.trim();
+					}						
 				}
 			}
 			Spinner spinner = (Spinner) findViewById(R.id.spinner1);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-					android.R.layout.simple_spinner_item, s);
+					android.R.layout.simple_spinner_item, carName);
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			spinner.setAdapter(adapter);
 		    spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
@@ -185,8 +205,6 @@ public class info extends Activity {
 
 	    public void onItemSelected(AdapterView<?> parent,
 	        View view, int pos, long id) {
-	     // Toast.makeText(parent.getContext(), "The planet is " +
-	     //     parent.getItemAtPosition(pos).toString(), Toast.LENGTH_LONG).show();
 	    	TextView vinTextView = (TextView) findViewById(R.id.vinTextField);
 	    	TextView makeTextView = (TextView) findViewById(R.id.makeTextField);
 	    	TextView modelTextView = (TextView) findViewById(R.id.modelTextField);
@@ -195,14 +213,14 @@ public class info extends Activity {
 	    	TextView cfpTextView = (TextView) findViewById(R.id.cfpTextField);
 	    	TextView descTextView = (TextView) findViewById(R.id.descTextField);
 
-	    	
-	    	vinTextView.setText(vin);
-	    	makeTextView.setText(make);
-	    	modelTextView.setText(model);
-	    	yearTextView.setText(year);
-	    	mpgTextView.setText(mpg);
-	    	cfpTextView.setText(carbFp);
-	    	descTextView.setText(desc);
+
+	    	vinTextView.setText(info[pos][0]);
+	    	makeTextView.setText(info[pos][1]);
+	    	modelTextView.setText(info[pos][2]);
+	    	yearTextView.setText(info[pos][3]);
+	    	mpgTextView.setText(info[pos][4]);
+	    	cfpTextView.setText(info[pos][5]);
+	    	descTextView.setText(info[pos][6]);
 	    	
 	    	
 	    	
