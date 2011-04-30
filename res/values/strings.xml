@@ -34,8 +34,7 @@
     <string name="Info_Model">Model:</string>
     <string name="Info_Year">Year:</string>
     <string name="Info_AMPG">Average MPG:</string>
-    <string name="Info_Total_Gallons">Total Gallons:</string>
-    <string name="Info_Total_Miles">Total Miles:</string>
+    <string name="Info_Desc">Description:</string>
     <string name="Info_Total_Carbon">Total Carbon Footprint:</string>
     
 </resources>

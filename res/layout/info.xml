@@ -8,36 +8,32 @@
   
   <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_VIN" />
-	<TextView android:padding="3dip" android:text="" />
+	<TextView android:id="@+id/vinTextField" android:padding="3dip" android:gravity="right" android:text="" />
   </TableRow>
   <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_Make" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  	<TextView android:id="@+id/makeTextField" android:padding="3dip" android:gravity="right" android:text=""/>
   </TableRow>
   <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_Model" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  	<TextView android:id="@+id/modelTextField" android:padding="3dip" android:gravity="right" android:text=""/>
   </TableRow>
     <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_Year" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  	<TextView android:id="@+id/yearTextField" android:padding="3dip" android:gravity="right" android:text=""/>
   </TableRow>
     <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_AMPG" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
-  </TableRow>
-    <TableRow>
-  	<TextView android:padding="3dip" android:text="@string/Info_Total_Gallons" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
-  </TableRow>
-    <TableRow>
-  	<TextView android:padding="3dip" android:text="@string/Info_Total_Miles" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  	<TextView android:id="@+id/mpgTextField" android:padding="3dip" android:gravity="right" android:text=""/>
   </TableRow>
     <TableRow>
   	<TextView android:padding="3dip" android:text="@string/Info_Total_Carbon" />
-  	<TextView android:padding="3dip" android:gravity="right" android:text=""/>
+  	<TextView android:id="@+id/cfpTextField" android:padding="3dip" android:gravity="right" android:text=""/>
   </TableRow>  
+    <TableRow>
+  	<TextView android:padding="3dip" android:text="@string/Info_Desc" />
+  </TableRow>
+  	<TextView android:id="@+id/descTextField" android:padding="3dip" android:text=""/> 
 </TableLayout>
 
 
