@@ -11,14 +11,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -26,11 +19,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.XMLReaderFactory;
 
 public class info extends Activity {
 
@@ -54,6 +44,13 @@ public class info extends Activity {
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		Log.d("BT Discovery", settings.getString("btDeviceList", "NA"));
+		
+		BT bt = new BT(getBaseContext(), null, settings.getString("btDeviceList","NA"));
+		bt.startBT();
+		bt.connectBT();
+		bt.connectStreams();
+		Log.d("BT Discovery","Reading BT dongle");
+		bt.read();
 
 		String url = "http://cars.tshaddox.com/api/vehiclelist?username=";
 		url += user;
