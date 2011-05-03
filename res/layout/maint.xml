@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<TableLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-    <TextView android:text="Add code here to pull up the list of maintenance for that car" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-</LinearLayout>
+        <Spinner android:id="@+id/spinner2" android:layout_height="wrap_content" android:layout_width="fill_parent"></Spinner>
+  	<View
+        android:layout_height="10dip" />
+  	<TextView android:id="@+id/maintTextField" android:padding="3dip" android:text=""/> 
+</TableLayout>

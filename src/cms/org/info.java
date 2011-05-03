@@ -24,17 +24,10 @@ import org.xml.sax.SAXParseException;
 
 public class info extends Activity {
 
-	String user = "admin";
-	String password = "password";
+	String user;
+	String password;
 	String info[][];
-	String vin;
-	String year;
-	String make;
-	String model;
-	String name;
-	String mpg;
-	String carbFp;
-	String desc;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +46,13 @@ public class info extends Activity {
 		//Log.d("BT Discovery","Reading BT dongle");
 		//bt.read();
 
+		// Get username and password from settings.
+		//user += settings.getString("username","user" );
+		//password += settings.getString("userpass", "password");
+		user = "admin";
+		password = "password";
+		
+		// Build URL to login and get all vehicles.
 		String url = "http://cars.tshaddox.com/api/vehiclelist?username=";
 		url += user;
 		url += "&password=";
@@ -92,11 +92,8 @@ public class info extends Activity {
 					Element vinElement = (Element) vinList.item(0);
 
 					NodeList vinTextList = vinElement.getChildNodes();
-					make = (String) vinTextList.item(0).getNodeValue()
-							.trim();
 					info[i][0]= (String) vinTextList.item(0).getNodeValue()
 					.trim();
-					Log.d("info", "Make : " + make);
 
 					// ------ Make
 					NodeList makeList = vehicleElement
@@ -104,11 +101,8 @@ public class info extends Activity {
 					Element makeElement = (Element) makeList.item(0);
 
 					NodeList makeTextList = makeElement.getChildNodes();
-					make = (String) makeTextList.item(0).getNodeValue()
-							.trim();
 					info[i][1]= (String) makeTextList.item(0).getNodeValue()
-					.trim();
-					Log.d("info", "Make : " + make);
+						.trim();
 					
 					// ------ Model
 					NodeList modelList = vehicleElement
@@ -116,11 +110,8 @@ public class info extends Activity {
 					Element modelElement = (Element) modelList.item(0);
 
 					NodeList modelTextList = modelElement.getChildNodes();
-					model = (String) modelTextList.item(0)
-							.getNodeValue().trim();
 					info[i][2] = (String) modelTextList.item(0)
-					.getNodeValue().trim();
-					Log.d("info", "Model : " + model);
+						.getNodeValue().trim();
 					
 					// ------ Year
 					NodeList yearList = vehicleElement
@@ -128,10 +119,9 @@ public class info extends Activity {
 					Element yearElement = (Element) yearList.item(0);
 
 					NodeList yearTextList = yearElement.getChildNodes();
-					year = (String) yearTextList.item(0).getNodeValue()
-							.trim();
 					info[i][3] = (String) yearTextList.item(0).getNodeValue()
 					.trim();
+					
 					// ------ Name
 					NodeList nameList = vehicleElement
 							.getElementsByTagName("name");
@@ -147,8 +137,6 @@ public class info extends Activity {
 					Element mpgElement = (Element) mpgList.item(0);
 
 					NodeList mpgTextList = mpgElement.getChildNodes();
-					mpg = (String) mpgTextList.item(0).getNodeValue()
-							.trim();
 					info[i][4] = (String) mpgTextList.item(0).getNodeValue()
 					.trim();
 					
@@ -158,8 +146,6 @@ public class info extends Activity {
 					Element cfpElement = (Element) cfpList.item(0);
 
 					NodeList cfpTextList = cfpElement.getChildNodes();
-					carbFp = (String) cfpTextList.item(0).getNodeValue()
-							.trim();
 					info[i][5] = (String) cfpTextList.item(0).getNodeValue()
 					.trim();
 					
@@ -172,10 +158,8 @@ public class info extends Activity {
 					NodeList descTextList = descElement.getChildNodes();
 					Log.d("info", "This: " + descTextList.item(0));
 					if (descTextList.item(0) != null) {	
-						desc = (String) descTextList.item(0).getNodeValue()
-								.trim();
 						info[i][6] = (String) descTextList.item(0).getNodeValue()
-						.trim();
+							.trim();
 					}						
 				}
 			}
@@ -198,7 +182,7 @@ public class info extends Activity {
 			t.printStackTrace();
 		}
 		
-	}// End OnCreate
+	}
 	
 	
 	public class MyOnItemSelectedListener implements OnItemSelectedListener {
