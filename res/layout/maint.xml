@@ -6,5 +6,8 @@
         <Spinner android:id="@+id/spinner2" android:layout_height="wrap_content" android:layout_width="fill_parent"></Spinner>
   	<View
         android:layout_height="10dip" />
-  	<TextView android:id="@+id/maintTextField" android:padding="3dip" android:text=""/> 
+  	<TextView android:layout_width="wrap_content" android:text="TextView" android:id="@+id/maintTextField" android:layout_height="wrap_content" android:padding="3dip"></TextView>
+    <TableRow> 
+    </TableRow>
+  		 
 </TableLayout>

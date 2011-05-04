@@ -134,7 +134,8 @@ public class maint extends Activity
 	    public void onItemSelected(AdapterView<?> parent,
 	        View view, int pos, long id) {
 	    	
-	    	String maint[];
+	    	String maint[][];
+	    	String s = "";
 	    	
 			// Build URL to login and get all vehicles.
 			String url = "http://cars.tshaddox.com/api/vehicle?username=";
@@ -161,41 +162,61 @@ public class maint extends Activity
 
 				NodeList vehicleList = doc.getElementsByTagName("vehicle");
 				int totalVehicles = vehicleList.getLength();
-				maint = new String[totalVehicles];
 
-					Node vehicleNode = vehicleList.item(0);
-					if (vehicleNode.getNodeType() == Node.ELEMENT_NODE) {
-						Element vehicleElement = (Element) vehicleNode;
-						
-						// ------ Maint
-						NodeList maintAlertList = vehicleElement
-								.getElementsByTagName("maintenance_alerts");
-						for( int i = 0; i > maintAlertList.getLength(); i++ ) {
-						Element alertElement = (Element) maintAlertList.item(i);
-
-						NodeList alertTextList = alertElement.getChildNodes();;
-						maint[i] = (String) alertTextList.item(0).getNodeValue()
-						.trim();
+				Node vehicleNode = vehicleList.item(0);
+				if (vehicleNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element vehicleElement = (Element) vehicleNode;
+					
+					// ------ Maint
+					NodeList maintAlertList = vehicleElement
+							.getElementsByTagName("alert");
+					int totalAlerts = maintAlertList.getLength();
+					maint = new String[totalAlerts][2];
+					Log.d("vin", "before for loop " + totalAlerts);
+					for( int i = 0; i < totalAlerts; i++ ) {
+						Node alertNode = maintAlertList.item(i);
+						Log.d("vin", "" + i);
+						if (alertNode.getNodeType() == Node.ELEMENT_NODE) {
+							Element alertElement = (Element) alertNode;
+							Log.d("vin", "" + i);
+							// ---- Category
+							NodeList catList = alertElement
+								.getElementsByTagName("category");
+							Element catElement = (Element) catList.item(0);
+							NodeList catTextList = catElement.getChildNodes();
+							maint[i][0] = (String) catTextList.item(0).getNodeValue()
+								.trim();
+							Log.d("vin", maint[i][0]);	
+							// ---- Due
+							NodeList dueList = alertElement
+								.getElementsByTagName("due_when_odometer_at");
+							Element dueElement = (Element) dueList.item(0);
+							NodeList dueTextList = dueElement.getChildNodes();
+							maint[i][1] = (String) dueTextList.item(0).getNodeValue()
+								.trim();
+							
+							Log.d("vin", maint[i][1]);
+							
+							s += maint[i][0] + " is due at " + maint[i][1] + " miles. \n\n";
+							Log.d("vin", s);
 						}
 					}
-	    	
-	    	TextView maintTextView = (TextView) findViewById(R.id.maintTextField);
-
-	    	maintTextView.setText(maint[0]);
-	    	
-				} catch (SAXParseException err) {
-			System.out.println("** Parsing error" + ", line "
-					+ err.getLineNumber() + ", uri " + err.getSystemId());
-			System.out.println(" " + err.getMessage());
-
-				} catch (SAXException e) {
-			Exception x = e.getException();
-			((x == null) ? e : x).printStackTrace();
-
-				} catch (Throwable t) {
-			t.printStackTrace();
 				}
-				}
+    	
+				TextView maintTextView = (TextView) findViewById(R.id.maintTextField);
+				maintTextView.setText(s);
+    	
+			} catch (SAXParseException err) {
+				System.out.println("** Parsing error" + ", line "
+						+ err.getLineNumber() + ", uri " + err.getSystemId());
+				System.out.println(" " + err.getMessage());
+			} catch (SAXException e) {
+				Exception x = e.getException();
+				((x == null) ? e : x).printStackTrace();
+			} catch (Throwable t) {
+				t.printStackTrace();
+			}
+	   	}
 	    public void onNothingSelected(AdapterView parent) {
 		      // Do nothing.
 		}	
