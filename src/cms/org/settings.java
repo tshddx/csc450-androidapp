@@ -78,7 +78,9 @@ public class settings extends PreferenceActivity
 			}
 		});
 	    
-	    if(bt.isEnabled())
+	    
+	    
+	    if(bt != null && bt.isEnabled())
 	    {
 	    	btToggle.setChecked(true);
 	    }
