@@ -34,6 +34,7 @@ public class fillup extends Activity
 {
 	private EditText etOdometer;
 	private EditText etGallons;
+	private EditText etVin;
 	private SharedPreferences settings;
 	
 	@Override
@@ -44,6 +45,7 @@ public class fillup extends Activity
 		
 		etOdometer = (EditText)findViewById(R.id.txtMiles);
 		etGallons = (EditText)findViewById(R.id.txtGallons);
+		etVin = (EditText) findViewById(R.id.txtVin);
 		
 		settings = PreferenceManager.getDefaultSharedPreferences(this);
 		
@@ -55,13 +57,14 @@ public class fillup extends Activity
 				String baseurl = "http://cars.tshaddox.com/api/fillup";
 				String username = "?username=admin";
 				String password = "&password=passwor";
-				String vin = "&vin=qwerty";
+				String vin = "&vin=";
 				String odometer= "&odometer=";
 				String gallons ="&gallons=";
 				String fullurl ="";
 				
-				odometer += etOdometer.getText().toString();
-				gallons += etGallons.getText().toString();
+				odometer += etOdometer.getText().toString().trim();
+				gallons += etGallons.getText().toString().trim();
+				vin += etVin.getText().toString().trim();
 				
 				//username += settings.getString("username","user" );
 				//password += settings.getString("userpass", "password");

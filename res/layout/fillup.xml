@@ -6,6 +6,15 @@
   		android:layout_height="fill_parent"
     	android:stretchColumns="2">
     	<TableRow>
+    	<TextView android:text="VIN : " android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+    	<EditText android:text="" android:layout_height="wrap_content" android:layout_weight="0.1" android:id="@+id/txtVin" android:layout_width="fill_parent"
+    	android:inputType="text"></EditText>
+    	</TableRow>
+    	
+    	<View
+        android:layout_height="10dip" />
+    	
+    	<TableRow>
 			<TextView android:text="Miles : " android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding ="3dip"></TextView>
 			<!--  <TextView android:text="MILES LOADED FROM ODB2" android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>  -->
 			<EditText android:text="" android:layout_height="wrap_content" android:layout_weight="0.1" android:id="@+id/txtMiles" android:layout_width="fill_parent"
