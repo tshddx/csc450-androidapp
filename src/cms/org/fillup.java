@@ -55,8 +55,8 @@ public class fillup extends Activity
 			public void onClick(View v){
 				// TODO Auto-generated method stub
 				String baseurl = "http://cars.tshaddox.com/api/fillup";
-				String username = "?username=admin";
-				String password = "&password=passwor";
+				String username = "?username=";
+				String password = "&password=";
 				String vin = "&vin=";
 				String odometer= "&odometer=";
 				String gallons ="&gallons=";
@@ -66,8 +66,8 @@ public class fillup extends Activity
 				gallons += etGallons.getText().toString().trim();
 				vin += etVin.getText().toString().trim();
 				
-				//username += settings.getString("username","user" );
-				//password += settings.getString("userpass", "password");
+				username += settings.getString("username","user" );
+				password += settings.getString("userpass", "password");
 				
 				if(etOdometer.getText().length() != 0 && etGallons.getText().length() != 0)
 				{

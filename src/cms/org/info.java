@@ -47,10 +47,10 @@ public class info extends Activity {
 		//bt.read();
 
 		// Get username and password from settings.
-		//user += settings.getString("username","user" );
-		//password += settings.getString("userpass", "password");
-		user = "admin";
-		password = "password";
+		user = settings.getString("username","user" );
+		password = settings.getString("userpass", "password");
+		//user = "admin";
+		//password = "password";
 		
 		// Build URL to login and get all vehicles.
 		String url = "http://cars.tshaddox.com/api/vehiclelist?username=";
